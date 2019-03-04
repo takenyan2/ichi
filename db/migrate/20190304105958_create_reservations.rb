@@ -1,6 +1,6 @@
-class CreateUsers < ActiveRecord::Migration[5.2]
+class CreateReservations < ActiveRecord::Migration[5.2]
   def change
-    create_table :users do |t|
+    create_table :reservations do |t|
       t.string :user_name
       t.string :user_kana_name
       t.string :gender

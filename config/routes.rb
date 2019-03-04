@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'reservations/index'
+  get 'reservations/update'
+  get 'reservations/destroy'
   devise_for :admins
   get 'agendas/new'
   get 'agendas/show'

@@ -10,6 +10,54 @@
   </head>
 
   <body>
+    <header>
+
+            <!-- 管理者ログイン時のヘッダー -->
+
+        <% if admin_signed_in?  %>
+            <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarEexample3">
+                        <ul class="nav navbar-nav">
+                            <%= link_to shops_top_path do %>
+                                <img src="/3488_logo_dog_01.jpg" class="header-logo" style="float:left; height:10%; width:8%;">
+                            <% end %>
+                            <div style="float:right;">
+                                <li class="text"><%= link_to "コース・料金", shops_menu_path %></li>
+                                <li class="text"><%= link_to "注意事項", shops_note_path %></li>
+                                <li class="text"><%= link_to "アクセス", shops_access_path %></li>
+                                <li class="text"><%= link_to "予約状況・予約フォーム",  shops_reservation_path %></li>
+                                <li class="text"><%=link_to "管理者ページ", reservations_index_path, "data-confirm" => "ログアウトしますか？", method: :delete %></li>
+                                <li class="text"><%=link_to "ログアウト", destroy_admin_session_path, "data-confirm" => "ログアウトしますか？", method: :delete %></li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        <% else %>
+
+            <!-- 一般ユーザーのヘッダー -->
+
+            <nav class="navbar navbar-default" style="display: flex;" >
+              <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarEexample3">
+                        <ul class="nav navbar-nav">
+                            <%= link_to shops_top_path do %>
+                                <img src="/3488_logo_dog_01.jpg" class="header-logo" style="float:left; height:10%; width:8%;">
+                            <% end %>
+                            <div style="float:right;">
+                                <li class="text"><%= link_to "コース・料金", shops_menu_path %></li>
+                                <li class="text"><%= link_to "注意事項", shops_note_path %></li>
+                                <li class="text"><%= link_to "アクセス", shops_access_path %></li>
+                                <li class="text"><%= link_to "予約状況・予約フォーム",  shops_reservation_path %></li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        <% end %>
+
+    </header>
     <%= yield %>
   </body>
 </html>

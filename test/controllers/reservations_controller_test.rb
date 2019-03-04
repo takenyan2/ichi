@@ -1,18 +1,18 @@
 require 'test_helper'
 
-class UsersControllerTest < ActionDispatch::IntegrationTest
+class ReservationsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get users_index_url
+    get reservations_index_url
     assert_response :success
   end
 
   test "should get update" do
-    get users_update_url
+    get reservations_update_url
     assert_response :success
   end
 
   test "should get destroy" do
-    get users_destroy_url
+    get reservations_destroy_url
     assert_response :success
   end
 
