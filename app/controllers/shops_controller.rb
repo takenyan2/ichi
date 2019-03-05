@@ -12,6 +12,8 @@ class ShopsController < ApplicationController
   end
 
   def reservation
+    @course = Course.new
+    @reservation = Reservation.new
   end
 
   def new

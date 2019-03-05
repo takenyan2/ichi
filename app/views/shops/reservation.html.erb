@@ -1,4 +1,51 @@
 <h1>Shops#reservation</h1>
 <p>Find me in app/views/shops/reservation.html.erb</p>
 
+	<h1 class="text" style="margin:40px 0px;">予約する</h1>
+		<%#= form_for @reservation do |f| %>
+		<%= form_with(model: @reservation, local: false) do |f| %>
 
+			<div class="field text" style="margin-bottom: 20px; font-size: 30px;">
+			<%= f.label :【予約者名】, class: "text" %><br />
+			<%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", placeholder:"漢字で名前を記入" %>
+			</div>
+
+			<div class="field text" style="margin-bottom: 20px; font-size: 30px;">
+			<%= f.label :【予約者カナ名】, class: "text" %><br />
+			<%= f.text_field :user_kana_name, autofocus: true, autocomplete: "user_kana_name", placeholder:"カタカナで名前を記入" %>
+			</div>
+
+			<div class="field text" style="margin-bottom: 20px; font-size: 30px;">
+			<%= f.label :【性別】, class: "text" %><br />
+				<%= f.select :gender, [["男性", "男性"], ["女性", "女性"]] %></br>
+			</div>
+
+			<div class="field text" style="margin-bottom: 20px; font-size: 30px;">
+			<%= f.label :【メールアドレス】, class: "text" %><br />
+			<%= f.text_field :user_email, autofocus: true, autocomplete: "uuser_email", placeholder:"メールアドレスは正確にご記入ください" %>
+			</div>
+
+			<div class="field text" style="margin-bottom: 20px; font-size: 30px;">
+			<%= f.label :【電話番号】, class: "text" %><br />
+			<%= f.number_field :user_phone_number, autofocus: true, autocomplete: "user_phone_number", placeholder:"半角数字で記入" %>
+			</div>
+
+			<div class="field text" style="margin-bottom: 20px; font-size: 30px;">
+			<%= f.label :【ご希望のコース】, class: "text" %><br />
+				<%= f.select :request_course, [["もみほぐし60分", "もみほぐし60分"], ["もみほぐし90分", "もみほぐし90分"], ["もみほぐし120分", "もみほぐし120分"], ["もみほぐし150分", "もみほぐし150分"], ["もみほぐし180分", "もみほぐし180分"]] %></br>
+			</div>
+
+			<div class="field text" style="margin-bottom: 20px; font-size: 30px;">
+			<%= f.label :【開始時間】, class: "text" %><br />
+			<%= f.select :start_time, [["10時", "10時"], ["11時", "11時"], ["12時", "12時"], ["13時", "13時"], ["14時", "14時"], ["15時", "15時"], ["16時", "16時"], ["17時", "17時"], ["18時", "18時"], ["19時", "19時"]] %>施術開始</br>
+			</div>
+
+			<div class="field text" style="margin-bottom: 20px; font-size: 30px;">
+			<%= f.label :【要望】, class: "text" %><br />
+			<%= f.text_area :demand, autofocus: true, placeholder:"要望があればお気軽にご記入ください" %>
+
+			<div class="actions text" style="margin-bottom: 75px; font-size: 30px;">
+			<%= f.submit "予約する", class: "btn btn-default text", style:"font-size:40px; padding:10px 30px; margin-top:20px;" %>
+			</div>
+
+		<% end %>
